@@ -25,5 +25,7 @@ public class CenterControl
 	center.addTrader(trader);
 	center.addTrader(trader2);
 	center.init();
+	trader.stopExecute();
+	trader2.stopExecute();
     }
 }
