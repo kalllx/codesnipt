@@ -1,5 +1,5 @@
 package com.kalllx.test;
-
+//http://docs.telerik.com/platform/appbuilder/troubleshooting/cannot-pull-merged-resolved
 import java.util.ArrayList;
 import java.util.List;
 
