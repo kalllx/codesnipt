@@ -1,0 +1,146 @@
+# database instance
+rdbms = oracle
+
+# email address for all notifications
+email = ecm_support@statestreet.com
+
+# include file containing target instances, this is in the subfolder so paths are relative from here
+includefile = ../../../sql/ora/scripts/dmsconfig.txt
+
+authlist = 317218, 556174, 534884, 313092, 434554, 527020, 541404, 504370, 482601, 472792, 458462, 494837, 512310, 541275, 489112, 549580
+
+# files to submit to target instances (relative to /sql)
+
+
+#Scheduler ddl
+scripts/COLLATERAL_META_LOGGER_CONFIG_DDL.SQL
+scripts/COLLATERAL_META_SFTRESOURCECONFIG_DDL.SQL
+scripts/COLLATERAL_META_TASK_INFO_DDL.SQL
+scripts/COLLATERAL_META_COUNTRY_CALENDAR_DDL.SQL
+scripts/COLLATERAL_META_SF_QUARTZ_MAPPER_DDL.SQL
+scripts/COLLATERAL_META_SERVICE_CLIENT_CONFIG_DDL.SQL
+scripts/COLLATERAL_META_SCHEDULE_INFO_DDL.SQL
+scripts/COLLATERAL_META_EVENT_DEPENDENCY_DDL.SQL
+scripts/COLLATERAL_META_SCHEDULE_TASK_MAP_DDL.SQL
+scripts/COLLATERAL_META_INSERT_COUNTRYCAL.SQL
+scripts/COLLATERAL_META_INSERT_SFQUARTZ_MAPPER.SQL
+scripts/COLLATERAL_META_TASK_INFO_GRANTS.SQL
+scripts/COLLATERAL_META_LOGGER_CONFIG_GRANTS.SQL
+scripts/COLLATERAL_META_SCHEDULE_INFO_GRANTS.SQL
+scripts/COLLATERAL_META_COUNTRY_CAL_GRANTS.SQL
+scripts/COLLATERAL_META_EVENT_DEPENDENCY_GRANTS.SQL
+scripts/COLLATERAL_META_SF_QUARTZ_MAPPER_GRANTS.SQL
+scripts/COLLATERAL_META_SCHEDULE_TASK_MAP_GRANTS.SQL
+scripts/COLLATERAL_META_SFTRESOURCECONFIG_GRANTS.SQL
+scripts/COLLATERAL_META_SERVICE_CLIENT_CONFIG_GRANTS.SQL
+
+#scheduler audit
+scripts/COLLATERAL_META_ALTER_TASK_INFO_DDL.SQL
+scripts/COLLATERAL_META_INSERT_SFTRESCONFIG.SQL
+
+#Scheduler common
+
+scripts/COLLATERAL_META_QUARTZ_DELETE_SCRIPTS.SQL
+scripts/COLLATERAL_META_QUARTZ_DROP_SCRIPTS.SQL
+scripts/COLLATERAL_META_qrtz_scheduler_state_DDL.SQL
+scripts/COLLATERAL_META_qrtz_locks_DDL.SQL
+scripts/COLLATERAL_META_qrtz_paused_trigger_grps_DDL.SQL
+scripts/COLLATERAL_META_QUARTZJOBDETAILS_DDL.SQL
+scripts/COLLATERAL_META_QUARTZ_TRIGGERS_DDL.SQL
+scripts/COLLATERAL_META_qrtz_simprop_triggers_ddl.sql
+scripts/COLLATERAL_META_qrtz_simple_triggers_ddl.sql
+scripts/COLLATERAL_META_qrtz_cron_triggers_ddl.sql
+scripts/COLLATERAL_META_qrtz_blob_triggers_ddl.sql
+scripts/COLLATERAL_META_qrtz_fired_triggers_DDL.SQL
+scripts/COLLATERAL_META_qrtz_calendars_DDL.SQL
+scripts/COLLATERAL_META_INSERT_LOGGERCONFIG.SQL  
+scripts/COLLATERAL_META_qrtz_locks_grants.SQL
+scripts/COLLATERAL_META_qrtz_triggers_grants.SQL
+scripts/COLLATERAL_META_qrtz_calendars_grants.SQL
+scripts/COLLATERAL_META_qrtz_job_details_grants.SQL
+scripts/COLLATERAL_META_qrtz_blob_triggers_grants.SQL
+scripts/COLLATERAL_META_qrtz_cron_triggers_grants.SQL
+scripts/COLLATERAL_META_qrtz_fired_triggers_grants.SQL
+scripts/COLLATERAL_META_qrtz_scheduler_state_grants.SQL
+scripts/COLLATERAL_META_qrtz_simple_triggers_grants.SQL
+scripts/COLLATERAL_META_qrtz_simprop_triggers_grants.SQL
+scripts/COLLATERAL_META_qrtz_paused_trigger_grps_grants.SQL
+scripts/COLLATERAL_META_INSERT_SFTRESOURCECONFIG.SQL
+
+#Scheduler event
+scripts/COLLATERAL_META_EVENT_DDL.SQL
+scripts/COLLATERAL_META_EVENT_ID_SEQUENCE_DDL.SQL
+scripts/COLLATERAL_META_EVENT_GRANTS.SQL
+scripts/COLLATERAL_META_EVENT_ID_SEQUENCE_GRANTS.SQL
+
+
+
+#Data processing
+
+scripts/FEED_FILE_SEQ.seq
+scripts/LOG_SEQ.seq
+scripts/TRANS_ERROR_FIELD_SEQ.seq
+scripts/TRANS_ERROR_RECORD_SEQ.seq
+scripts/TRANS_INSTANCE_SEQ.seq
+scripts/TRANS_LISTENER_SEQ.seq
+
+scripts/TRANS_TYPE.tab
+scripts/TRANSFORMATION.tab
+scripts/TRANS_LISTENER.tab
+scripts/TRANS_INSTANCE.tab
+scripts/TRANS_ERROR_RECORD.tab
+scripts/ERROR_CODE.tab
+scripts/TRANS_LOG.tab
+scripts/TRANS_ERROR_CORRECTION.tab
+scripts/MSG_TYPE_TRANS_MAP.tab
+scripts/SP_PARAMETER.tab
+scripts/TRANS_ERROR_FIELD.tab
+scripts/TRANS_PARAMETER.tab
+scripts/TRANS_CONFIG.tab
+scripts/FEED_FILE.tab
+scripts/DP_EMAIL_PROPERTY.tab
+scripts/TRANS_ERROR_CORRECTION_ARCH.tab
+scripts/TRANS_ERROR_FIELD_ARCH.tab
+scripts/TRANS_INSTANCE_ARCH.tab
+scripts/TRANS_ERROR_RECORD_ARCH.tab
+
+scripts/trans_daily_job_pkg.sql
+scripts/trans_daily_job.sql
+
+#Feed processing metadata 
+#scripts/collateral_mate_scheduler_metadata.sql
+scripts/1_COLLATERAL_META_SP_CONFIGURATION.sql
+scripts/2_COLLATERAL_META_SP_ERROR_CODE.sql
+scripts/1_COLLATERAL_META_KTR_CONFIGURATION.sql
+scripts/2_COLLATERAL_META_INSERT_BONYUS_KTR.sql
+scripts/3_COLLATERAL_META_INSERT_BONYGLOBAL_KTR.sql
+scripts/4_COLLATERAL_META_INSERT_ChaseUS_KTR.sql
+scripts/5_COLLATERAL_META_INSERT_ChaseGlobal_KTR.sql
+scripts/6_COLLATERAL_META_INSERT_ClearStream_KTR.sql
+scripts/7_COLLATERAL_META_INSERT_EuroClear_KTR.sql
+scripts/8_COLLATERAL_META_INSERT_SSGAUS_KTR.sql
+scripts/9_COLLATERAL_META_INSERT_SSGANONUS_KTR.sql
+scripts/10_COLLATERAL_META_KTR_ERROR_CODE.sql.sql
+scripts/11_COLLATERAL_META_SET_DEFINE_ONE.sql
+
+# Feed processing DDL -- to be updated.
+scripts/COLLATERAL_TYPE_1.sql
+scripts/COLLATERAL_TYPE_2.sql
+scripts/COLLATERAL_TYPE_3.sql
+scripts/COLLATERAL_TYPE_4.sql
+scripts/COLLATERAL_SEQUENCE.sql
+scripts/COLLATERAL_XFER_DATA_ID_SQ.sqll
+scripts/COLLATERAL_INSERT_TABLES.sql
+scripts/COLLATERAL_CREATE_HIST_TABLE.sql
+scripts/COLLATERAL_T_INSQ_LIST.sql
+scripts/COLLATERAL_SPLIT.sql
+scripts/COLLATERAL_FN_GET_COLL_ACCTID.sql
+scripts/COLLATERAL_FN_GET_SUBCUSTID.sql
+scripts/COLLATERAL_FN_GET_KEYVALUE.sql
+scripts/COLLATERAL_SP_LOAD_DAILY_COLL.sql
+scripts/COLLATERAL_SP_LOAD_DAILY_REINVESTMENT.sql
+scripts/COLLATERAL_SP_LOAD_DAILY_ENTRANCE.sql
+scripts/SLDARCH_CREATE_ARCH_TABLES.sql
+scripts/grant_COLLATERAL_ref_tables.sql
+scripts/COLLATERAL_GRANT_TABLE.sql
+
