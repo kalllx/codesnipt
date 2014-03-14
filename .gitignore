@@ -4,6 +4,9 @@
 *.jar
 *.war
 *.ear
+<<<<<<< HEAD
 /.project
 /.classpath
 /.settings
+=======
+>>>>>>> branch 'master' of https://github.com/kalllx/codesnipt.git
