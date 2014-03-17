@@ -5,27 +5,27 @@ import java.util.List;
 
 public class CenterControl
 {
-    List<Trader> traders = new ArrayList<Trader>();
+    List<Trader> traders ;
     public void addTrader(Trader trader){
 	traders.add(trader);
     }
     public void init(){
-	for(Trader trader:traders)
-	{
-	    trader.start();
-	}
-    }
-    public static void main(String[] args)
-    {
-	CenterControl center = new CenterControl();
+	traders = new ArrayList<Trader>();
 	Trader trader = new Trader();
 	trader.setName("chongdong");
 	Trader trader2 = new Trader();
 	trader2.setName("lengjing");
-	center.addTrader(trader);
-	center.addTrader(trader2);
+	addTrader(trader);
+	addTrader(trader2);
+    }
+    public static void main(String[] args)
+    {
+	CenterControl center = new CenterControl();
 	center.init();
-	trader.stopExecute();
-	trader2.stopExecute();
+	
+	for(Trader t:center.traders)
+	{
+	    t.execute();
+	}
     }
 }
