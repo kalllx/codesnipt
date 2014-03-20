@@ -1,0 +1,51 @@
+first 
+
+JDBC     java
+DATE 	java.sql.Date
+TIME 	java.sql.Time
+TIMESTAMP 	java.sql.Timestamp
+++++++++++++++++++++++++++++++++
+
+above is the mapping relationship jdbc and java used in etmvc.
+
+however sqlite has dynamic type.
+all date is store in number.
+
+
+because reading date type field from rs. in sqlite jdbc driver ,and  convert number to yyyy-mm-dd formate
+
+must use getDate\getTime\getStamTime 
+
+etmvc use all with getObject.
+
+getString or getObject for date field may work on other db.but not sqlite/
+
+etmvc get the number string instead
+
+this is need to convert to according date Object.
+but the converter is used in ui(yyyy-mm-dd) and db select(number). so the datebinder need
+cumstomer redefined.
+
+
+   user = (User)User.updateModel(user, this.request.getParameterMap());
+   
+***why ui need db convert as ui has binder.(this is a bad smell)
+
+article : sqlite feather http://www.tutorialspoint.com/sqlite/sqlite_date_time.htm
+			jdbc common usage: http://www.java2s.com/Tutorial/Java/0340__Database/GettheCurrentTimestampasajavasqlTimeObject.htm
+
+
+_______________________________
+so for etmvc used in sqlite 
+need to refactor dataConveter
+
+
+ a DataBinder.java  is used in UI
+ 
+ a DataConverter.java  is used in DB
+ 
+ 	   Model
+ 	 / 		 \
+	binder   conveter
+ 	/		  \
+ [UI]      	  [DB]

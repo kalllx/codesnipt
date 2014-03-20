@@ -1,7 +1,6 @@
-package com.kalllx.ardb.util;
+package com.et.ar;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 数据转换实用类
@@ -86,6 +85,7 @@ public class ConvertUtil {
      */
     private static Object castFromString(String val, Class<?> destType){
         String typeName = destType.getCanonicalName();
+        
         if (typeName.equals("java.lang.String")){
             return val;
         }
@@ -118,17 +118,38 @@ public class ConvertUtil {
             return new java.math.BigDecimal(val);
         }
         else if (typeName.equals("java.sql.Date")){
-            return java.sql.Date.valueOf(val.substring(0, 10));	//yyyy-mm-dd
+           if( val.matches("^([0-9]+)$"))
+           {
+               return new java.sql.Date(Long.parseLong(val));	//13455656598454
+           }
+               return java.sql.Date.valueOf(val.substring(0, 10));	//yyyy-mm-dd   
         }
         else if (typeName.equals("java.sql.Time")){
+            if( val.matches("^([0-9]+)$"))
+            {
+                return new java.sql.Time(Long.parseLong(val));	//13455656598454
+            }
             return java.sql.Time.valueOf(val);
         }
         else if (typeName.equals("java.sql.Timestamp")){
-        	if (val.trim().length() == 10) {
+            if( val.matches("^([0-9]+)$"))
+            {
+                return new java.sql.Timestamp(Long.parseLong(val));	//13455656598454
+            }
+            if (val.trim().length() == 10) {
         		return java.sql.Timestamp.valueOf(val.trim() + " 00:00:00");
         	}
             return java.sql.Timestamp.valueOf(val);
         }
         return null;
     }
+    public static void trit(Object o)
+    {
+	 System.out.println(o.getClass().getCanonicalName());
+    }
+    public static void main(String[] args)
+    {
+	trit(5);
+    }
+ 
 }
