@@ -1,0 +1,32 @@
+1. .schema 
+2. SELECT sql FROM sqlite_master WHERE name = 'foo';
+
+sqlite> SELECT sql FROM sqlite_master WHERE name = 'user';
+CREATE TABLE user (id integer primary KEY autoincrement,  name text,  addr text,
+ email text, remark text,  date text,  time text,  timestamp text)
+
+3.
+sqlite> pragma table_info('user');
+0|id|integer|0||1
+1|name|text|0||0
+2|addr|text|0||0
+3|email|text|0||0
+4|remark|text|0||0
+5|date|text|0||0
+6|time|text|0||0
+7|timestamp|text|0||0
+
+PRAGMA table_info(table-name);
+
+Columns in the result set include the 
+column name, 
+data type, 
+whether or not the column can be NULL,
+default value for the column. 
+ The "pk" column in the result set is zero for columns that are not part of the primary key, 
+ and is the index of the column in the primary key for columns that are part of the primary key.
+
+manner 1 is some with manner 2, diffrent is 2 canbe used out of cmd
+
+
+test on sqlite3
