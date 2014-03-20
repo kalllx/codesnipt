@@ -69,8 +69,12 @@ public class OrmInfo {
 	orm = new OrmInfo();
         
         Table t = clasz.getAnnotation(Table.class);
-        if (t != null) {
+        /*if (t != null) {
         	orm.table = t.name();
+        }*/
+        // process tablename
+        if (t != null) {
+		orm.table = "".equals(t.name())?clasz.getSimpleName():t.name();
         }
         
         List<ColumnField> columnFields = new ArrayList<ColumnField>();
